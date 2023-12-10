@@ -1,34 +1,38 @@
 #!/usr/bin/env perl 
-use strict;
+
+#use v5.30.0;
 use warnings;
 use utf8;
 
 use IO::Socket::INET;
 use AnyEvent;
 use AnyEvent::Util;
+use Try::Tiny;
+use Cpanel::JSON::XS;
+use Getopt::Long;
+
 $AnyEvent::Util::MAX_FORKS = 15;
 
-# use v5.30.0;
-use strict;
-use warnings;
-use Try::Tiny;
-use AnyEvent::HTTPD;
-
-#use JSON qw/encode_json decode_json/;
-use Cpanel::JSON::XS;
+$|++; # Flush
 
 my $json = Cpanel::JSON::XS->new;
-
-# $json->boolean_values(['false', 'true']);
-
-my $handled = 0;
-$|++;
 
 my $port = 3005;
 
 my $host = '165.227.237.186';
 
-my $server = IO::Socket::INET->new(
+my $verbose = 0;
+
+my ($server, $cv, $w);
+
+GetOptions ("port=i" => \$port,    # numeric
+            "host=s"   => \$host,      # string
+            "verbose"  => \$verbose)   # flag
+or die("Error in command line arguments\n");
+
+
+sub main {
+$server = IO::Socket::INET->new(
     'Proto'     => 'tcp',
     'LocalAddr' => $host,
     'LocalPort' => $port,
@@ -37,21 +41,23 @@ my $server = IO::Socket::INET->new(
 ) or die "can't setup server: $!\n";
 print "Listening on $host:$port\n";
 
-my $cv = AnyEvent->condvar;
-my $w;
+$cv = AnyEvent->condvar;
+
 $w = AnyEvent->io(
     fh   => \*{$server},
     poll => 'r',
     cb   => sub {
-        $handled++;
         $cv->begin;
         fork_call sub { &handle_connections }, $server->accept, sub {
             my ($client) = @_;
-            print " - Client $client closed\n";
+            print STDERR " - Client $client closed\n" if $verbose;
         }
     }
 );
 $cv->recv;
+}
+
+main() if ! caller;
 
 #
 # Subroutines
@@ -60,13 +66,15 @@ sub handle_connections {
     my ($client) = @_;
 
     my $host = $client->peerhost;
-    print "[Accepted connection from $host]\n";
+    print STDERR "[Accepted connection from $host]\n" if $verbose;
 
     while ( my $input = <$client> ) {
         chomp $input;
-        print "Got: $input\n";
+        print STDERR "Got: $input\n" if $verbose;
+
         my $res = process($input);
-        print "Return: " . $res . "\n";
+        print STDERR "Return: " . $res . "\n" if $verbose;
+
         print $client $res . "\n";
         last if $res eq 'malformed';
     }
@@ -78,14 +86,9 @@ sub handle_connections {
 sub process {
     my ($raw_content) = @_;
 
-    #$raw_content = '{"number":"1234","method":"isPrime"}';
-    print STDERR "Got a request $raw_content\n";
+    print STDERR "Got a request $raw_content\n" if $verbose;
     my $malformed = 0;
 
-    # $malformed = 1 if $raw_content =~ m/"number"\s*:\s*"/;
-    # $malformed = 1 if $raw_content =~ m/"number"\s*:\s*(true|false)/;
-
-    print STDERR "malformed=$malformed\n";
     my $content;
     try {
         $content = $json->decode($raw_content);
@@ -94,24 +97,23 @@ sub process {
         $malformed = 1;
     };
 
-    use Data::Dumper;
-    print STDERR Dumper($content);
-    print STDERR "malformed=$malformed\n";
     $malformed = 1 if !$content;
-    print STDERR "malformed=$malformed\n";
+
     $malformed = 1 if ( $content->{method} || '' ) ne 'isPrime';
-    print STDERR "malformed=$malformed\n";
+
     $malformed = 1 if ( $content->{number} // '' ) !~ /^-?\d+\.?\d*$/;
-    print STDERR "malformed=$malformed\n";
+
     $malformed = 1 if $json->is_bool( $content->{number} );
-    print STDERR "malformed=$malformed\n";
-    $malformed = 1
-      if ( !exists $content->{bignumber} ) && ( !isnum( $content->{number} ) );
-    print STDERR "malformed=$malformed\n";
+
+    if (( !exists($content->{bignumber}) ) && ( !is_num( $content->{number} ) )) {
+	print STDERR "$content->{number} looks like it is a string\n" if $verbose;
+	$malformed = 1;
+    }
 
     if ($malformed) {
         return "malformed";
     }
+
     if ( !is_prime( $content->{number} ) ) {
         return encode_json( { method => 'isPrime', prime => $json->false } ),;
     }
@@ -131,7 +133,10 @@ sub is_prime {
     return 1;
 }
 
-sub isnum ($) {
+# https://stackoverflow.com/questions/1804311/how-can-i-tell-if-a-number-is-a-whole-number-in-perl
+# Doesn't work with v5.30.
+sub is_num ($) {
+    no warnings;
     return 0 if $_[0] eq '';
     $_[0] ^ $_[0] ? 0 : 1;
 }
