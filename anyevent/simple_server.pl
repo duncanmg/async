@@ -13,7 +13,7 @@ use Getopt::Long;
 
 $AnyEvent::Util::MAX_FORKS = 15;
 
-$|++; # Flush
+$|++;    # Flush
 
 my $json = Cpanel::JSON::XS->new;
 
@@ -23,41 +23,42 @@ my $host = '165.227.237.186';
 
 my $verbose = 0;
 
-my ($server, $cv, $w);
+my ( $server, $cv, $w );
 
-GetOptions ("port=i" => \$port,    # numeric
-            "host=s"   => \$host,      # string
-            "verbose"  => \$verbose)   # flag
-or die("Error in command line arguments\n");
-
+GetOptions(
+    "port=i"  => \$port,     # numeric
+    "host=s"  => \$host,     # string
+    "verbose" => \$verbose
+  )                          # flag
+  or die("Error in command line arguments\n");
 
 sub main {
-$server = IO::Socket::INET->new(
-    'Proto'     => 'tcp',
-    'LocalAddr' => $host,
-    'LocalPort' => $port,
-    'Listen'    => SOMAXCONN,
-    'Reuse'     => 1,
-) or die "can't setup server: $!\n";
-print "Listening on $host:$port\n";
+    $server = IO::Socket::INET->new(
+        'Proto'     => 'tcp',
+        'LocalAddr' => $host,
+        'LocalPort' => $port,
+        'Listen'    => SOMAXCONN,
+        'Reuse'     => 1,
+    ) or die "can't setup server: $!\n";
+    print "Listening on $host:$port\n";
 
-$cv = AnyEvent->condvar;
+    $cv = AnyEvent->condvar;
 
-$w = AnyEvent->io(
-    fh   => \*{$server},
-    poll => 'r',
-    cb   => sub {
-        $cv->begin;
-        fork_call sub { &handle_connections }, $server->accept, sub {
-            my ($client) = @_;
-            print STDERR " - Client $client closed\n" if $verbose;
+    $w = AnyEvent->io(
+        fh   => \*{$server},
+        poll => 'r',
+        cb   => sub {
+            $cv->begin;
+            fork_call sub { &handle_connections }, $server->accept, sub {
+                my ($client) = @_;
+                print STDERR " - Client $client closed\n" if $verbose;
+            }
         }
-    }
-);
-$cv->recv;
+    );
+    $cv->recv;
 }
 
-main() if ! caller;
+main() if !caller;
 
 #
 # Subroutines
@@ -105,9 +106,13 @@ sub process {
 
     $malformed = 1 if $json->is_bool( $content->{number} );
 
-    if (( !exists($content->{bignumber}) ) && ( !is_num( $content->{number} ) )) {
-	print STDERR "$content->{number} looks like it is a string\n" if $verbose;
-	$malformed = 1;
+    # This is a bodge. Very big numbers are strings.
+    if (   ( !exists( $content->{bignumber} ) )
+        && ( !is_num( $content->{number} ) ) )
+    {
+        print STDERR "$content->{number} looks like it is a string\n"
+          if $verbose;
+        $malformed = 1;
     }
 
     if ($malformed) {
