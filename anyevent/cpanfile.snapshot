@@ -1,5 +1,12 @@
 # carton snapshot format: version 1.0
 DISTRIBUTIONS
+  Algorithm-Diff-1.201
+    pathname: R/RJ/RJBS/Algorithm-Diff-1.201.tar.gz
+    provides:
+      Algorithm::Diff 1.201
+      Algorithm::Diff::_impl 1.201
+    requirements:
+      ExtUtils::MakeMaker 0
   AnyEvent-7.17
     pathname: M/ML/MLEHMANN/AnyEvent-7.17.tar.gz
     provides:
@@ -49,9 +56,656 @@ DISTRIBUTIONS
     requirements:
       Canary::Stability 0
       ExtUtils::MakeMaker 6.52
+  AnyEvent-HTTP-2.25
+    pathname: M/ML/MLEHMANN/AnyEvent-HTTP-2.25.tar.gz
+    provides:
+      AnyEvent::HTTP 2.25
+    requirements:
+      AnyEvent 5.33
+      ExtUtils::MakeMaker 0
+      common::sense 3.3
+  AnyEvent-HTTPD-0.93
+    pathname: E/EL/ELMEX/AnyEvent-HTTPD-0.93.tar.gz
+    provides:
+      AnyEvent::HTTPD 0.93
+      AnyEvent::HTTPD::HTTPConnection undef
+      AnyEvent::HTTPD::HTTPServer undef
+      AnyEvent::HTTPD::Request undef
+      AnyEvent::HTTPD::Util undef
+    requirements:
+      AnyEvent 0
+      AnyEvent::HTTP 0
+      Compress::Zlib 0
+      ExtUtils::MakeMaker 0
+      Object::Event 0
+      Test::More 0
+      Time::Local 0
+      URI 0
+      bytes 0
+      common::sense 0
   Canary-Stability-2013
     pathname: M/ML/MLEHMANN/Canary-Stability-2013.tar.gz
     provides:
       Canary::Stability 2013
+    requirements:
+      ExtUtils::MakeMaker 0
+  Capture-Tiny-0.48
+    pathname: D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz
+    provides:
+      Capture::Tiny 0.48
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 6.17
+      File::Spec 0
+      File::Temp 0
+      IO::Handle 0
+      Scalar::Util 0
+      perl 5.006
+      strict 0
+      warnings 0
+  Clone-0.46
+    pathname: G/GA/GARU/Clone-0.46.tar.gz
+    provides:
+      Clone 0.46
+    requirements:
+      ExtUtils::MakeMaker 0
+  Cpanel-JSON-XS-4.37
+    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.37.tar.gz
+    provides:
+      Cpanel::JSON::XS 4.37
+      Cpanel::JSON::XS::Type undef
+    requirements:
+      Carp 0
+      Config 0
+      Encode 1.9801
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Pod::Text 2.08
+      XSLoader 0
+      overload 0
+      strict 0
+      warnings 0
+  Data-OptList-0.114
+    pathname: R/RJ/RJBS/Data-OptList-0.114.tar.gz
+    provides:
+      Data::OptList 0.114
+    requirements:
+      ExtUtils::MakeMaker 6.78
+      List::Util 0
+      Params::Util 0
+      Sub::Install 0.921
+      perl 5.012
+      strict 0
+      warnings 0
+  Data-Section-0.200008
+    pathname: R/RJ/RJBS/Data-Section-0.200008.tar.gz
+    provides:
+      Data::Section 0.200008
+    requirements:
+      Encode 0
+      ExtUtils::MakeMaker 6.78
+      MRO::Compat 0.09
+      Sub::Exporter 0.979
+      perl 5.012
+      strict 0
+      warnings 0
+  Encode-Locale-1.05
+    pathname: G/GA/GAAS/Encode-Locale-1.05.tar.gz
+    provides:
+      Encode::Locale 1.05
+    requirements:
+      Encode 2
+      Encode::Alias 0
+      ExtUtils::MakeMaker 0
+      perl 5.008
+  HTTP-Date-6.06
+    pathname: O/OA/OALDERS/HTTP-Date-6.06.tar.gz
+    provides:
+      HTTP::Date 6.06
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Time::Local 1.28
+      Time::Zone 0
+      perl 5.006002
+      strict 0
+  HTTP-Message-6.45
+    pathname: O/OA/OALDERS/HTTP-Message-6.45.tar.gz
+    provides:
+      HTTP::Config 6.45
+      HTTP::Headers 6.45
+      HTTP::Headers::Auth 6.45
+      HTTP::Headers::ETag 6.45
+      HTTP::Headers::Util 6.45
+      HTTP::Message 6.45
+      HTTP::Request 6.45
+      HTTP::Request::Common 6.45
+      HTTP::Response 6.45
+      HTTP::Status 6.45
+    requirements:
+      Carp 0
+      Clone 0.46
+      Compress::Raw::Bzip2 0
+      Compress::Raw::Zlib 2.062
+      Encode 3.01
+      Encode::Locale 1
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      HTTP::Date 6
+      IO::Compress::Bzip2 2.021
+      IO::Compress::Deflate 0
+      IO::Compress::Gzip 0
+      IO::HTML 0
+      IO::Uncompress::Inflate 0
+      IO::Uncompress::RawInflate 0
+      LWP::MediaTypes 6
+      MIME::Base64 2.1
+      MIME::QuotedPrint 0
+      URI 1.10
+      parent 0
+      perl 5.008001
+      strict 0
+      warnings 0
+  IO-1.51
+    pathname: T/TO/TODDR/IO-1.51.tar.gz
+    provides:
+      IO 1.51
+      IO::Dir 1.51
+      IO::File 1.51
+      IO::Handle 1.51
+      IO::Pipe 1.51
+      IO::Pipe::End 1.51
+      IO::Poll 1.51
+      IO::Seekable 1.51
+      IO::Select 1.51
+      IO::Socket 1.51
+      IO::Socket::INET 1.51
+      IO::Socket::UNIX 1.51
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Temp 0.15
+      Test::More 0
+  IO-HTML-1.004
+    pathname: C/CJ/CJM/IO-HTML-1.004.tar.gz
+    provides:
+      IO::HTML 1.004
+    requirements:
+      Carp 0
+      Encode 2.10
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      perl 5.008
+  JSON-4.10
+    pathname: I/IS/ISHIGAKI/JSON-4.10.tar.gz
+    provides:
+      JSON 4.10
+      JSON::Backend::PP 4.10
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+  LWP-MediaTypes-6.04
+    pathname: O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz
+    provides:
+      LWP::MediaTypes 6.04
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      Scalar::Util 0
+      perl 5.006002
+      strict 0
+  MRO-Compat-0.15
+    pathname: H/HA/HAARG/MRO-Compat-0.15.tar.gz
+    provides:
+      MRO::Compat 0.15
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.006
+  Module-Build-0.4234
+    pathname: L/LE/LEONT/Module-Build-0.4234.tar.gz
+    provides:
+      Module::Build 0.4234
+      Module::Build::Base 0.4234
+      Module::Build::Compat 0.4234
+      Module::Build::Config 0.4234
+      Module::Build::Cookbook 0.4234
+      Module::Build::Dumper 0.4234
+      Module::Build::Notes 0.4234
+      Module::Build::PPMMaker 0.4234
+      Module::Build::Platform::Default 0.4234
+      Module::Build::Platform::MacOS 0.4234
+      Module::Build::Platform::Unix 0.4234
+      Module::Build::Platform::VMS 0.4234
+      Module::Build::Platform::VOS 0.4234
+      Module::Build::Platform::Windows 0.4234
+      Module::Build::Platform::aix 0.4234
+      Module::Build::Platform::cygwin 0.4234
+      Module::Build::Platform::darwin 0.4234
+      Module::Build::Platform::os2 0.4234
+      Module::Build::PodParser 0.4234
+    requirements:
+      CPAN::Meta 2.142060
+      Cwd 0
+      Data::Dumper 0
+      ExtUtils::CBuilder 0.27
+      ExtUtils::Install 0
+      ExtUtils::Manifest 0
+      ExtUtils::Mkbootstrap 0
+      ExtUtils::ParseXS 2.21
+      File::Basename 0
+      File::Compare 0
+      File::Copy 0
+      File::Find 0
+      File::Path 0
+      File::Spec 0.82
+      Getopt::Long 0
+      Module::Metadata 1.000002
+      Perl::OSType 1
+      TAP::Harness 3.29
+      Text::Abbrev 0
+      Text::ParseWords 0
+      perl 5.006001
+      version 0.87
+  Module-Runtime-0.016
+    pathname: Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz
+    provides:
+      Module::Runtime 0.016
+    requirements:
+      Module::Build 0
+      Test::More 0.41
+      perl 5.006
+      strict 0
+      warnings 0
+  Module-Starter-1.77
+    pathname: D/DB/DBOOK/Module-Starter-1.77.tar.gz
+    provides:
+      Module::Starter 1.77
+      Module::Starter::App 1.77
+      Module::Starter::BuilderSet 1.77
+      Module::Starter::Plugin::Template 1.77
+      Module::Starter::Simple 1.77
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Path 0
+      File::Spec 0
+      Getopt::Long 0
+      Module::Runtime 0
+      Pod::Usage 1.21
+      Software::License 0.103005
+      Test::Harness 0.21
+      Test::More 0.94
+      parent 0
+      version 0.77
+  Object-Event-1.23
+    pathname: E/EL/ELMEX/Object-Event-1.23.tar.gz
+    provides:
+      Object::Event 1.23
+    requirements:
+      AnyEvent 3.5
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      common::sense 0
+  Params-Util-1.102
+    pathname: R/RE/REHSACK/Params-Util-1.102.tar.gz
+    provides:
+      Params::Util 1.102
+      Params::Util::PP 1.102
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Copy 0
+      File::Path 0
+      File::Spec 0
+      IPC::Cmd 0
+      Scalar::Util 1.18
+      XSLoader 0.22
+      parent 0
+  Perl-Tidy-20230912
+    pathname: S/SH/SHANCOCK/Perl-Tidy-20230912.tar.gz
+    provides:
+      Perl::Tidy 20230912
+      Perl::Tidy::Debugger 20230912
+      Perl::Tidy::Diagnostics 20230912
+      Perl::Tidy::FileWriter 20230912
+      Perl::Tidy::Formatter 20230912
+      Perl::Tidy::HtmlWriter 20230912
+      Perl::Tidy::IOScalar 20230912
+      Perl::Tidy::IOScalarArray 20230912
+      Perl::Tidy::IndentationItem 20230912
+      Perl::Tidy::Logger 20230912
+      Perl::Tidy::Tokenizer 20230912
+      Perl::Tidy::VerticalAligner 20230912
+      Perl::Tidy::VerticalAligner::Alignment 20230912
+      Perl::Tidy::VerticalAligner::Line 20230912
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.008
+  Software-License-0.104005
+    pathname: R/RJ/RJBS/Software-License-0.104005.tar.gz
+    provides:
+      Software::License 0.104005
+      Software::License::AGPL_3 0.104005
+      Software::License::Apache_1_1 0.104005
+      Software::License::Apache_2_0 0.104005
+      Software::License::Artistic_1_0 0.104005
+      Software::License::Artistic_1_0_Perl 0.104005
+      Software::License::Artistic_2_0 0.104005
+      Software::License::BSD 0.104005
+      Software::License::CC0_1_0 0.104005
+      Software::License::Custom 0.104005
+      Software::License::EUPL_1_1 0.104005
+      Software::License::EUPL_1_2 0.104005
+      Software::License::FreeBSD 0.104005
+      Software::License::GFDL_1_2 0.104005
+      Software::License::GFDL_1_3 0.104005
+      Software::License::GPL_1 0.104005
+      Software::License::GPL_2 0.104005
+      Software::License::GPL_3 0.104005
+      Software::License::ISC 0.104005
+      Software::License::LGPL_2_1 0.104005
+      Software::License::LGPL_3_0 0.104005
+      Software::License::MIT 0.104005
+      Software::License::Mozilla_1_0 0.104005
+      Software::License::Mozilla_1_1 0.104005
+      Software::License::Mozilla_2_0 0.104005
+      Software::License::None 0.104005
+      Software::License::OpenSSL 0.104005
+      Software::License::Perl_5 0.104005
+      Software::License::PostgreSQL 0.104005
+      Software::License::QPL_1_0 0.104005
+      Software::License::SSLeay 0.104005
+      Software::License::Sun 0.104005
+      Software::License::Zlib 0.104005
+      Software::LicenseUtils 0.104005
+    requirements:
+      Carp 0
+      Data::Section 0
+      ExtUtils::MakeMaker 6.78
+      File::Spec 0
+      IO::Dir 0
+      Module::Load 0
+      Text::Template 0
+      parent 0
+      perl 5.012
+      strict 0
+      utf8 0
+      warnings 0
+  Sub-Exporter-0.991
+    pathname: R/RJ/RJBS/Sub-Exporter-0.991.tar.gz
+    provides:
+      Sub::Exporter 0.991
+      Sub::Exporter::Util 0.991
+    requirements:
+      Carp 0
+      Data::OptList 0.100
+      ExtUtils::MakeMaker 6.78
+      Params::Util 0.14
+      Sub::Install 0.92
+      perl 5.012
+      strict 0
+      warnings 0
+  Sub-Install-0.929
+    pathname: R/RJ/RJBS/Sub-Install-0.929.tar.gz
+    provides:
+      Sub::Install 0.929
+    requirements:
+      B 0
+      Carp 0
+      ExtUtils::MakeMaker 6.78
+      Scalar::Util 0
+      perl 5.008000
+      strict 0
+      warnings 0
+  Test-Differences-0.71
+    pathname: D/DC/DCANTRELL/Test-Differences-0.71.tar.gz
+    provides:
+      Test::Differences 0.71
+    requirements:
+      Capture::Tiny 0.24
+      Data::Dumper 2.126
+      ExtUtils::MakeMaker 0
+      Test::More 0.88
+      Text::Diff 1.43
+  Test-Simple-1.302198
+    pathname: E/EX/EXODIST/Test-Simple-1.302198.tar.gz
+    provides:
+      Test2 1.302198
+      Test2::API 1.302198
+      Test2::API::Breakage 1.302198
+      Test2::API::Context 1.302198
+      Test2::API::Instance 1.302198
+      Test2::API::InterceptResult 1.302198
+      Test2::API::InterceptResult::Event 1.302198
+      Test2::API::InterceptResult::Facet 1.302198
+      Test2::API::InterceptResult::Hub 1.302198
+      Test2::API::InterceptResult::Squasher 1.302198
+      Test2::API::Stack 1.302198
+      Test2::Event 1.302198
+      Test2::Event::Bail 1.302198
+      Test2::Event::Diag 1.302198
+      Test2::Event::Encoding 1.302198
+      Test2::Event::Exception 1.302198
+      Test2::Event::Fail 1.302198
+      Test2::Event::Generic 1.302198
+      Test2::Event::Note 1.302198
+      Test2::Event::Ok 1.302198
+      Test2::Event::Pass 1.302198
+      Test2::Event::Plan 1.302198
+      Test2::Event::Skip 1.302198
+      Test2::Event::Subtest 1.302198
+      Test2::Event::TAP::Version 1.302198
+      Test2::Event::V2 1.302198
+      Test2::Event::Waiting 1.302198
+      Test2::EventFacet 1.302198
+      Test2::EventFacet::About 1.302198
+      Test2::EventFacet::Amnesty 1.302198
+      Test2::EventFacet::Assert 1.302198
+      Test2::EventFacet::Control 1.302198
+      Test2::EventFacet::Error 1.302198
+      Test2::EventFacet::Hub 1.302198
+      Test2::EventFacet::Info 1.302198
+      Test2::EventFacet::Info::Table 1.302198
+      Test2::EventFacet::Meta 1.302198
+      Test2::EventFacet::Parent 1.302198
+      Test2::EventFacet::Plan 1.302198
+      Test2::EventFacet::Render 1.302198
+      Test2::EventFacet::Trace 1.302198
+      Test2::Formatter 1.302198
+      Test2::Formatter::TAP 1.302198
+      Test2::Hub 1.302198
+      Test2::Hub::Interceptor 1.302198
+      Test2::Hub::Interceptor::Terminator 1.302198
+      Test2::Hub::Subtest 1.302198
+      Test2::IPC 1.302198
+      Test2::IPC::Driver 1.302198
+      Test2::IPC::Driver::Files 1.302198
+      Test2::Tools::Tiny 1.302198
+      Test2::Util 1.302198
+      Test2::Util::ExternalMeta 1.302198
+      Test2::Util::Facets2Legacy 1.302198
+      Test2::Util::HashBase 1.302198
+      Test2::Util::Trace 1.302198
+      Test::Builder 1.302198
+      Test::Builder::Formatter 1.302198
+      Test::Builder::IO::Scalar 2.114
+      Test::Builder::Module 1.302198
+      Test::Builder::Tester 1.302198
+      Test::Builder::Tester::Color 1.302198
+      Test::Builder::Tester::Tie 1.302198
+      Test::Builder::TodoDiag 1.302198
+      Test::More 1.302198
+      Test::Simple 1.302198
+      Test::Tester 1.302198
+      Test::Tester::Capture 1.302198
+      Test::Tester::CaptureRunner 1.302198
+      Test::Tester::Delegate 1.302198
+      Test::use::ok 1.302198
+      ok 1.302198
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      File::Temp 0
+      Scalar::Util 1.13
+      Storable 0
+      perl 5.006002
+      utf8 0
+  Text-Diff-1.45
+    pathname: N/NE/NEILB/Text-Diff-1.45.tar.gz
+    provides:
+      Text::Diff 1.45
+      Text::Diff::Base 1.45
+      Text::Diff::Config 1.44
+      Text::Diff::Table 1.44
+    requirements:
+      Algorithm::Diff 1.19
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      perl 5.006
+  Text-Template-1.61
+    pathname: M/MS/MSCHOUT/Text-Template-1.61.tar.gz
+    provides:
+      Text::Template 1.61
+      Text::Template::Preprocess 1.61
+    requirements:
+      Carp 0
+      Encode 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      base 0
+      perl 5.008
+      strict 0
+      warnings 0
+  TimeDate-2.33
+    pathname: A/AT/ATOOMIC/TimeDate-2.33.tar.gz
+    provides:
+      Date::Format 2.24
+      Date::Format::Generic 2.24
+      Date::Language 1.10
+      Date::Language::Afar 0.99
+      Date::Language::Amharic 1.00
+      Date::Language::Austrian 1.01
+      Date::Language::Brazilian 1.01
+      Date::Language::Bulgarian 1.01
+      Date::Language::Chinese 1.00
+      Date::Language::Chinese_GB 1.01
+      Date::Language::Czech 1.01
+      Date::Language::Danish 1.01
+      Date::Language::Dutch 1.02
+      Date::Language::English 1.01
+      Date::Language::Finnish 1.01
+      Date::Language::French 1.04
+      Date::Language::Gedeo 0.99
+      Date::Language::German 1.02
+      Date::Language::Greek 1.00
+      Date::Language::Hungarian 1.01
+      Date::Language::Icelandic 1.01
+      Date::Language::Italian 1.01
+      Date::Language::Norwegian 1.01
+      Date::Language::Occitan 1.04
+      Date::Language::Oromo 0.99
+      Date::Language::Romanian 1.01
+      Date::Language::Russian 1.01
+      Date::Language::Russian_cp1251 1.01
+      Date::Language::Russian_koi8r 1.01
+      Date::Language::Sidama 0.99
+      Date::Language::Somali 0.99
+      Date::Language::Spanish 1.00
+      Date::Language::Swedish 1.01
+      Date::Language::Tigrinya 1.00
+      Date::Language::TigrinyaEritrean 1.00
+      Date::Language::TigrinyaEthiopian 1.00
+      Date::Language::Turkish 1.0
+      Date::Parse 2.33
+      Time::Zone 2.24
+      TimeDate 1.21
+    requirements:
+      ExtUtils::MakeMaker 0
+  Try-Tiny-0.31
+    pathname: E/ET/ETHER/Try-Tiny-0.31.tar.gz
+    provides:
+      Try::Tiny 0.31
+    requirements:
+      Carp 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      constant 0
+      perl 5.006
+      strict 0
+      warnings 0
+  URI-5.21
+    pathname: O/OA/OALDERS/URI-5.21.tar.gz
+    provides:
+      URI 5.21
+      URI::Escape 5.21
+      URI::Heuristic 5.21
+      URI::IRI 5.21
+      URI::QueryParam 5.21
+      URI::Split 5.21
+      URI::URL 5.21
+      URI::WithBase 5.21
+      URI::data 5.21
+      URI::file 5.21
+      URI::file::Base 5.21
+      URI::file::FAT 5.21
+      URI::file::Mac 5.21
+      URI::file::OS2 5.21
+      URI::file::QNX 5.21
+      URI::file::Unix 5.21
+      URI::file::Win32 5.21
+      URI::ftp 5.21
+      URI::gopher 5.21
+      URI::http 5.21
+      URI::https 5.21
+      URI::icap 5.21
+      URI::icaps 5.21
+      URI::ldap 5.21
+      URI::ldapi 5.21
+      URI::ldaps 5.21
+      URI::mailto 5.21
+      URI::mms 5.21
+      URI::news 5.21
+      URI::nntp 5.21
+      URI::nntps 5.21
+      URI::pop 5.21
+      URI::rlogin 5.21
+      URI::rsync 5.21
+      URI::rtsp 5.21
+      URI::rtspu 5.21
+      URI::sftp 5.21
+      URI::sip 5.21
+      URI::sips 5.21
+      URI::snews 5.21
+      URI::ssh 5.21
+      URI::telnet 5.21
+      URI::tn3270 5.21
+      URI::urn 5.21
+      URI::urn::isbn 5.21
+      URI::urn::oid 5.21
+    requirements:
+      Carp 0
+      Cwd 0
+      Data::Dumper 0
+      Encode 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      MIME::Base64 2
+      Net::Domain 0
+      Scalar::Util 0
+      constant 0
+      integer 0
+      overload 0
+      parent 0
+      perl 5.008001
+      strict 0
+      utf8 0
+      warnings 0
+  common-sense-3.75
+    pathname: M/ML/MLEHMANN/common-sense-3.75.tar.gz
+    provides:
+      common::sense 3.75
     requirements:
       ExtUtils::MakeMaker 0
